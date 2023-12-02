@@ -23,21 +23,63 @@
             color: black;
             cursor: pointer;
             margin: 8px;
-        }      
+        }   
+        
+        .editor_container {
+            width: 80%;
+            margin: 50px auto;}
+
+         .button-container {
+            display: inline-block;
+
+        }
+        
+
+        #editor {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+
+        .color-palette {
+            position: absolute;
+            display: none;
+            z-index:1;
+            margin-left: 8px;
+}
+button {
+            position: relative;
+            color: aliceblue;
+            background-color: rgb(5, 54, 54);
+            border-color: rgb(5, 54, 54);
+            padding:10px;
+            border-radius: 10px;
+            content: inherit;
+            width: 15px;
+            height: 15px;
+            margin: 8px;
+}
+
+        button b {
+            font-size: 16px;
+            cursor: pointer;
+}
+.color-palette{
+    position: absolute;
+    display: none;
+    z-index: 1;
+    margin-left: 8px;
+}
 
     </style>
 </head>
 <body>
     <div class="ribbon">
-
-      <img src="Resources/undo-4-32.png" alt="Undo" onclick="formatText('undo')" id="undo-icon">
-      <img src="Resources/action-redo-32.png" alt="Redo" onclick="formatText('redo')" id="redo-icon">
-    
-
-        <img src="Resources/left.png" alt="Left" onclick="formatText('justifyleft')" id="left-icon">
-        <img src="Resources/right.png" alt="Right" onclick="formatText('justifyright')" id="right-icon">
-        <img src="Resources/justify.png" alt="Justify" onclick="formatText('justifyfully')" id="justify-icon">
-        <img src="Resources/center.png" alt="Center" onclick="formatText('justifycenter')" id="center-icon">
+        <img src="Resources/bold-xxl.png" alt="Bold" onclick="formatText('bold')" id="bold-icon">
+        <img src="Resources/format_underline_white_192x192.png" style="width: 18px; height: 18px;" alt="Underline" onclick="formatText('underline')" id="underline-icon">
+        <img src="Resources/italic-xxl.png" alt="Italic" onclick="formatText('italic')" id="italic-icon">
 
         <div class="color-palette" id="colorPalette">
             <input type="color" id="colorPicker" onchange="applyColor()">
@@ -45,15 +87,21 @@
 
         <button onclick="toggleColorPalette()">
             <b id="colorBtn">A</b>
-        </button>
+        </button>
 
+        <img src="Resources/left.png" alt="Left" onclick="formatText('justifyleft')" id="left-icon">
+        <img src="Resources/right.png" alt="Right" onclick="formatText('justifyright')" id="right-icon">
+        <img src="Resources/justify.png" alt="Justify" onclick="formatText('justifyfully')" id="justify-icon">
+        <img src="Resources/center.png" alt="Center" onclick="formatText('justifycenter')" id="center-icon">
 
-        <img src="Resources/italic-xxl.png" alt="Italic" onclick="formatText('italic')" id="italic-icon">
-        <img src="Resources/format_underline_white_192x192.png" alt="Underline" onclick="formatText('underline')" id="underline-icon">
-        <img src="Resources/bold-xxl.png" alt="Bold" onclick="formatText('bold')" id="bold-icon">
-
+       <img src="Resources/undo-4-32.png" alt="Undo" onclick="formatText('undo')" id="undo-icon">
+       <img src="Resources/action-redo-32.png" alt="Redo" onclick="formatText('redo')" id="redo-icon">
         
-
     </div>
-</body>
-</html>
+
+    <div class="editor_container">
+        <div id="editor" contenteditable="true"></div>
+</div>
+
+    <script src="script.js"></script>
+</body></html>
